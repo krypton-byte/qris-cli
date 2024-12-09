@@ -13,14 +13,20 @@ use fast_qr::convert::{Builder, Shape};
 #[command(propagate_version = true)]
 struct Args {
     #[clap(value_hint = ValueHint::FilePath)]
+    #[arg(short, long)]
     input: String,
     #[clap(value_hint = ValueHint::DirPath)]
+    #[arg(short, long)]
     output: String,
     #[arg(short, long, default_value_t = 600)]
     size: u32,
+    #[arg(short, long)]
     merchant: Option<String>,
+    #[arg(short, long)]
     amount: Option<usize>,
+    #[arg(short, long)]
     city: Option<String>,
+    #[arg(short, long)]
     postal_code: Option<String>,
 }
 
