@@ -1,6 +1,6 @@
 use std::process::exit;
 
-use clap::Parser;
+use clap::{Parser, ValueHint};
 use fast_qr::convert::image::ImageBuilder;
 use qris::node::Nodes;
 use image;
@@ -12,7 +12,9 @@ use fast_qr::convert::{Builder, Shape};
 #[command(version, about, long_about = None)]
 #[command(propagate_version = true)]
 struct Args {
+    #[clap(value_hint = ValueHint::FilePath)]
     input: String,
+    #[clap(value_hint = ValueHint::DirPath)]
     output: String,
     #[arg(short, long, default_value_t = 600)]
     size: u32,
